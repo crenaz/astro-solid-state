@@ -7,7 +7,7 @@ export interface Props {
   date: Date;
   summary: string;
   alt?: string;
-  contents: string;
+  contents?: string;
 }
 
 const { title, image, date, summary, alt, contents } = Astro.props;
@@ -24,5 +24,5 @@ const { title, image, date, summary, alt, contents } = Astro.props;
   <div class="image main">
     <img src={image} width={896} height={436} alt={alt || ''} />
   </div>
-  <Fragment set:html={contents} />
+  {contents ? <Fragment set:html={contents} /> : <slot />}
 </section>

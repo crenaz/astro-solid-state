@@ -12,8 +12,10 @@ const { frontmatter, compiledContent } = Astro.props;
       date={new Date(frontmatter.pubDate)}
       title={frontmatter.title}
       summary={frontmatter.summary}
-      contents={compiledContent()}
+      contents={typeof compiledContent === 'function' ? compiledContent() : undefined}
       image={frontmatter.image}
-    />
+    >
+      <slot />
+    </Post>
   </div>
 </Layout>

@@ -1,12 +1,10 @@
 ---
-import { GoogleFontsOptimizer } from 'astro-google-fonts-optimizer';
-
-import IntroHeader from 'src/components/IntroHeader.astro';
+import IntroHeader from '../components/IntroHeader.astro';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 
 import '../styles/sass/main.scss';
-import { SITE } from 'src/config';
+import { SITE } from '../config';
 
 export interface Props {
   title: string;
@@ -23,9 +21,25 @@ const { title, intro } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <GoogleFontsOptimizer
-      url="https://fonts.googleapis.com/css?family=Raleway:300,700,300italic,700italic|Source+Sans+Pro:900&display=swap"
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css?family=Raleway:300,700,300italic,700italic|Source+Sans+Pro:900&display=swap"
     />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Raleway:300,700,300italic,700italic|Source+Sans+Pro:900&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Raleway:300,700,300italic,700italic|Source+Sans+Pro:900&display=swap"
+      />
+    </noscript>
     <title>{title}</title>
   </head>
   <body class="is-preload">

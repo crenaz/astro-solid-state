@@ -39,6 +39,7 @@ export const SOCIAL_MEDIA_ITEMS = [
 export const SITE = {
   title: 'This is Solid State',
   description: 'A free, fully responsive HTML5 + CSS3 site template, ported to Astro',
+  url: 'https://crenaz.github.io/astro-solid-state',
 };
 
 export const CONTACT = {
